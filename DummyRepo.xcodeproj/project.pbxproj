@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6374C85720AC900E0020337A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6374C85620AC900E0020337A /* API.swift */; };
+		1E2EA52920AC9E2E0083B81F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2EA52820AC9E2E0083B81F /* API.swift */; };
+		1E2EA53320ADED700083B81F /* CountryWithStockExchanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2EA53220ADED700083B81F /* CountryWithStockExchanges.swift */; };
+		1E2EA53520ADFB6A0083B81F /* StockExchangeWithStocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2EA53420ADFB6A0083B81F /* StockExchangeWithStocks.swift */; };
+		1E2EA53720AE11720083B81F /* StockPriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2EA53620AE11720083B81F /* StockPriceViewController.swift */; };
+		1E2EA53920AE328C0083B81F /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2EA53820AE328C0083B81F /* Stock.swift */; };
 		6374C85920AC9D190020337A /* StocksForStockExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6374C85820AC9D190020337A /* StocksForStockExchangeViewController.swift */; };
 		63EBFC4F20A9E8F100B1FE83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EBFC4E20A9E8F100B1FE83 /* AppDelegate.swift */; };
 		63EBFC5120A9E8F100B1FE83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EBFC5020A9E8F100B1FE83 /* ViewController.swift */; };
@@ -29,7 +33,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6374C85620AC900E0020337A /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		1E2EA52820AC9E2E0083B81F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		1E2EA53220ADED700083B81F /* CountryWithStockExchanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryWithStockExchanges.swift; sourceTree = "<group>"; };
+		1E2EA53420ADFB6A0083B81F /* StockExchangeWithStocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockExchangeWithStocks.swift; sourceTree = "<group>"; };
+		1E2EA53620AE11720083B81F /* StockPriceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockPriceViewController.swift; sourceTree = "<group>"; };
+		1E2EA53820AE328C0083B81F /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		6374C85820AC9D190020337A /* StocksForStockExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksForStockExchangeViewController.swift; sourceTree = "<group>"; };
 		63EBFC4B20A9E8F100B1FE83 /* DummyRepo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DummyRepo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63EBFC4E20A9E8F100B1FE83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,13 +93,17 @@
 			children = (
 				63EBFC4E20A9E8F100B1FE83 /* AppDelegate.swift */,
 				63EBFC5020A9E8F100B1FE83 /* ViewController.swift */,
+				1E2EA53620AE11720083B81F /* StockPriceViewController.swift */,
+				1E2EA53820AE328C0083B81F /* Stock.swift */,
 				6374C85820AC9D190020337A /* StocksForStockExchangeViewController.swift */,
 				63EBFC5220A9E8F100B1FE83 /* Main.storyboard */,
 				63EBFC5820A9E8F200B1FE83 /* Assets.xcassets */,
+				1E2EA53220ADED700083B81F /* CountryWithStockExchanges.swift */,
+				1E2EA53420ADFB6A0083B81F /* StockExchangeWithStocks.swift */,
 				63EBFC5A20A9E8F200B1FE83 /* LaunchScreen.storyboard */,
 				63EBFC5D20A9E8F200B1FE83 /* Info.plist */,
 				63EBFC5520A9E8F100B1FE83 /* DummyRepo.xcdatamodeld */,
-				6374C85620AC900E0020337A /* API.swift */,
+				1E2EA52820AC9E2E0083B81F /* API.swift */,
 			);
 			path = DummyRepo;
 			sourceTree = "<group>";
@@ -208,9 +220,13 @@
 			files = (
 				63EBFC5720A9E8F100B1FE83 /* DummyRepo.xcdatamodeld in Sources */,
 				63EBFC5120A9E8F100B1FE83 /* ViewController.swift in Sources */,
-				6374C85720AC900E0020337A /* API.swift in Sources */,
 				6374C85920AC9D190020337A /* StocksForStockExchangeViewController.swift in Sources */,
+				1E2EA53320ADED700083B81F /* CountryWithStockExchanges.swift in Sources */,
+				1E2EA53520ADFB6A0083B81F /* StockExchangeWithStocks.swift in Sources */,
 				63EBFC4F20A9E8F100B1FE83 /* AppDelegate.swift in Sources */,
+				1E2EA52920AC9E2E0083B81F /* API.swift in Sources */,
+				1E2EA53720AE11720083B81F /* StockPriceViewController.swift in Sources */,
+				1E2EA53920AE328C0083B81F /* Stock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
