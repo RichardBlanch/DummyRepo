@@ -12,6 +12,9 @@
 		1E2EA53520ADFB6A0083B81F /* StockExchangeWithStocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2EA53420ADFB6A0083B81F /* StockExchangeWithStocks.swift */; };
 		1E2EA53720AE11720083B81F /* StockPriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2EA53620AE11720083B81F /* StockPriceViewController.swift */; };
 		1E2EA53920AE328C0083B81F /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2EA53820AE328C0083B81F /* Stock.swift */; };
+		1E2EA54620AF644E0083B81F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2EA54520AF644E0083B81F /* CoreDataStack.swift */; };
+		1E2EA54820AF655D0083B81F /* StockEntityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2EA54720AF655D0083B81F /* StockEntityViewController.swift */; };
+		1E2EA54A20AF6F490083B81F /* PriceEntity+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2EA54920AF6F490083B81F /* PriceEntity+Extension.swift */; };
 		6374C85920AC9D190020337A /* StocksForStockExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6374C85820AC9D190020337A /* StocksForStockExchangeViewController.swift */; };
 		63EBFC4F20A9E8F100B1FE83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EBFC4E20A9E8F100B1FE83 /* AppDelegate.swift */; };
 		63EBFC5120A9E8F100B1FE83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EBFC5020A9E8F100B1FE83 /* ViewController.swift */; };
@@ -38,6 +41,9 @@
 		1E2EA53420ADFB6A0083B81F /* StockExchangeWithStocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockExchangeWithStocks.swift; sourceTree = "<group>"; };
 		1E2EA53620AE11720083B81F /* StockPriceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockPriceViewController.swift; sourceTree = "<group>"; };
 		1E2EA53820AE328C0083B81F /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
+		1E2EA54520AF644E0083B81F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		1E2EA54720AF655D0083B81F /* StockEntityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockEntityViewController.swift; sourceTree = "<group>"; };
+		1E2EA54920AF6F490083B81F /* PriceEntity+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PriceEntity+Extension.swift"; sourceTree = "<group>"; };
 		6374C85820AC9D190020337A /* StocksForStockExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksForStockExchangeViewController.swift; sourceTree = "<group>"; };
 		63EBFC4B20A9E8F100B1FE83 /* DummyRepo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DummyRepo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63EBFC4E20A9E8F100B1FE83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +79,7 @@
 		63EBFC4220A9E8F100B1FE83 = {
 			isa = PBXGroup;
 			children = (
+				1E2EA54920AF6F490083B81F /* PriceEntity+Extension.swift */,
 				63EBFC4D20A9E8F100B1FE83 /* DummyRepo */,
 				63EBFC6520A9E8F200B1FE83 /* DummyRepoTests */,
 				63EBFC4C20A9E8F100B1FE83 /* Products */,
@@ -92,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				63EBFC4E20A9E8F100B1FE83 /* AppDelegate.swift */,
+				1E2EA54520AF644E0083B81F /* CoreDataStack.swift */,
 				63EBFC5020A9E8F100B1FE83 /* ViewController.swift */,
 				1E2EA53620AE11720083B81F /* StockPriceViewController.swift */,
 				1E2EA53820AE328C0083B81F /* Stock.swift */,
@@ -104,6 +112,7 @@
 				63EBFC5D20A9E8F200B1FE83 /* Info.plist */,
 				63EBFC5520A9E8F100B1FE83 /* DummyRepo.xcdatamodeld */,
 				1E2EA52820AC9E2E0083B81F /* API.swift */,
+				1E2EA54720AF655D0083B81F /* StockEntityViewController.swift */,
 			);
 			path = DummyRepo;
 			sourceTree = "<group>";
@@ -223,9 +232,12 @@
 				6374C85920AC9D190020337A /* StocksForStockExchangeViewController.swift in Sources */,
 				1E2EA53320ADED700083B81F /* CountryWithStockExchanges.swift in Sources */,
 				1E2EA53520ADFB6A0083B81F /* StockExchangeWithStocks.swift in Sources */,
+				1E2EA54820AF655D0083B81F /* StockEntityViewController.swift in Sources */,
+				1E2EA54620AF644E0083B81F /* CoreDataStack.swift in Sources */,
 				63EBFC4F20A9E8F100B1FE83 /* AppDelegate.swift in Sources */,
 				1E2EA52920AC9E2E0083B81F /* API.swift in Sources */,
 				1E2EA53720AE11720083B81F /* StockPriceViewController.swift in Sources */,
+				1E2EA54A20AF6F490083B81F /* PriceEntity+Extension.swift in Sources */,
 				1E2EA53920AE328C0083B81F /* Stock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,7 +23,9 @@ class StocksForStockExchangeViewController: UIViewController, UITableViewDataSou
 
     var stockExchangesWithStocks: StockExchangeWithStocks? {
         didSet {
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -82,7 +84,7 @@ class StocksForStockExchangeViewController: UIViewController, UITableViewDataSou
         let cell = UITableViewCell()
         //let stockDictionary = dataDictionary[indexPath.row]
       //  let stock = stockDictionary["company"]
-        cell.textLabel?.text = stockExchangesWithStocks?.stocks[indexPath.row].symbol
+        cell.textLabel?.text = stockExchangesWithStocks?.stocks[indexPath.row].company
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

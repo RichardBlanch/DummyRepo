@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="PriceEntity" representedClassName="PriceEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="beta" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="daysHigh" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="daysLow" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="daysOpen" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="float" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="stock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StockEntity" inverseName="price" inverseEntity="StockEntity" syncable="YES"/>
+    </entity>
     <entity name="StockEntity" representedClassName="StockEntity" syncable="YES" codeGenerationType="class">
         <attribute name="company" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
@@ -8,8 +16,10 @@
         <attribute name="sector" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="subindustry" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="symbol" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="price" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PriceEntity" inverseName="stock" inverseEntity="PriceEntity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="StockEntity" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="StockEntity" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="PriceEntity" positionX="-54" positionY="45" width="128" height="135"/>
     </elements>
 </model>

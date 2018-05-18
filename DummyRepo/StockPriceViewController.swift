@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class StockPriceViewController: UIViewController {
 
@@ -18,6 +19,7 @@ class StockPriceViewController: UIViewController {
     }
     
     var requestedStock: Stock!
+    let context = CoreDataStack.shared.managedObjectContext
 
     
     private var stockURLString: String!
@@ -28,7 +30,7 @@ class StockPriceViewController: UIViewController {
     }
     
     private func makeNetworkRequest() {
-        let urlString = "https://api.gurufocus.com/public/user/\(API.apiKey)/stock/\(requestedStock.symbol)AAPL/keyratios"  //CHANGE ME
+        let urlString = "https://api.gurufocus.com/public/user/\(API.apiKey)/stock/\(requestedStock.symbol)/keyratios"  //CHANGE ME
         guard let url = URL(string: urlString) else { return }
         
         let urlSession = URLSession.shared.dataTask(with: url, completionHandler: respondToData).resume()
@@ -41,11 +43,13 @@ class StockPriceViewController: UIViewController {
             let dictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: [String:String]]  //CHANGE ME
             
             let price = dictionary?["Price"] as? [String: String]
-            let daysHigh = price!["Day's High"] as? String
+          let priceEntity =  PriceEntity.init(dictionary: price!, context: CoreDataStack.shared.managedObjectContext)
             
-            DispatchQueue.main.async {
-                self.priceLabel.text = daysHigh
+            if let stocks = fetchStocks() {
+                stocks.price = priceEntity
+                try? context.save()
             }
+            
         } catch {
             print("Error = \(error)")
         }
@@ -53,4 +57,13 @@ class StockPriceViewController: UIViewController {
         
 
     }
+    
+    private func fetchStocks() -> StockEntity? {
+        let stockFetchRequest: NSFetchRequest<StockEntity> = StockEntity.fetchRequest()
+        stockFetchRequest.predicate = NSPredicate(format: "company == %@", "\(requestedStock.company ?? "")")
+        let fetchedStocks = try? context.fetch(stockFetchRequest)
+        
+        return fetchedStocks?.first
+    }
+    
 }

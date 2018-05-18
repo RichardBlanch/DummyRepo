@@ -7,17 +7,7 @@
 //
 
 import Foundation
-/*
-symbol    String    
-exchange    String
-company    String
-currency    String
-industry    String
-sector    String
-subindustry    String
- */
-
-
+import CoreData
 
 struct Stock {
 
@@ -30,6 +20,20 @@ struct Stock {
     let subindustry: String
     
     init(dictionary: [String: String]) {
+        self.symbol = dictionary["symbol"] ?? ""
+        self.exchange = dictionary["exchange"] ?? ""
+        self.company = dictionary["company"] ?? ""
+        self.currency = dictionary["currency"] ?? ""
+        self.industry = dictionary["industry"] ?? ""
+        self.sector = dictionary["sector"] ?? ""
+        self.subindustry = dictionary["subindustry"] ?? ""
+    }
+}
+
+extension StockEntity {
+    convenience init(_ dictionary: [String: String], _ context: NSManagedObjectContext) {
+        self.init(context: context)
+
         self.symbol = dictionary["symbol"] ?? ""
         self.exchange = dictionary["exchange"] ?? ""
         self.company = dictionary["company"] ?? ""
