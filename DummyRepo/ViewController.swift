@@ -13,18 +13,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: - Interface Builder
 
     @IBOutlet weak var tableView: UITableView!
+    let searchController = UISearchController(searchResultsController: nil)
 
     // MARK: - Model
 
-    var countriesWithStockExchanges: [String: [String]] = [:] {
+    var countriesWithStockExchanges: [CountryWithStockExchanges] = [] {
         didSet {
             tableView.reloadData()
         }
     }
+    
+    var selectedStockExchange: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.searchController = searchController
         makeNetworkRequest()
         title = "Stock Exchanges"
     }
@@ -41,43 +45,65 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         do {
             let dictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! [String: [String]]
-            self.countriesWithStockExchanges = dictionary
+
+            var mutableCountryWithStockExchange = [CountryWithStockExchanges]()
+            for (key, value) in dictionary {
+                let countryWithStockExchanges = CountryWithStockExchanges(country: key, stockExchanges: value)
+                mutableCountryWithStockExchange.append(countryWithStockExchanges)
+            }
+            
+            mutableCountryWithStockExchange = mutableCountryWithStockExchange.sorted(by: sortStocks)
+            self.countriesWithStockExchanges = mutableCountryWithStockExchange
+            
+            
         } catch {
             print("Error = \(error)")
         }
     }
+    
+    private func sortStocks(stockOne: CountryWithStockExchanges, stockTwo: CountryWithStockExchanges) -> Bool {
+        return stockOne.country < stockTwo.country
+    }
 
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pushToStock" {
+            let stocks4StockExchangeViewController = segue.destination as! StocksForStockExchangeViewController
+            stocks4StockExchangeViewController.stockExchange = selectedStockExchange
+        }
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return countriesWithStockExchanges.keys.count
+        return countriesWithStockExchanges.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let countryString = Array(countriesWithStockExchanges.keys)[section]
-        let countryCount = countriesWithStockExchanges[countryString]?.count
-
-        return countryCount ?? 0
+        return countriesWithStockExchanges[section].stockExchanges.count
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 30))
-        headerView.text = Array(countriesWithStockExchanges.keys)[section]
-
+        headerView.text = countriesWithStockExchanges[section].country
         return headerView
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableViewCell = UITableViewCell()
 
-        let countryString = Array(countriesWithStockExchanges.keys)[indexPath.section]
-        let stockExchangeArray = countriesWithStockExchanges[countryString] ?? []
-        let stockExchange = stockExchangeArray[indexPath.row] ?? ""
-        tableViewCell.textLabel?.text = stockExchange
+
+        tableViewCell.textLabel?.text = countriesWithStockExchanges[indexPath.section].stockExchanges[indexPath.row]
 
         return tableViewCell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("indexPath = \(indexPath)")
+//        let countryString = Array(countriesWithStockExchanges.keys)[indexPath.section]
+//        let stockExchangeArray = countriesWithStockExchanges[countryString] ?? []
+//        let stockExchange = stockExchangeArray[indexPath.row] ?? ""
+//
+//        selectedStockExchange = stockExchange
+        selectedStockExchange = countriesWithStockExchanges[indexPath.section].stockExchanges[indexPath.row]
+        performSegue(withIdentifier: "pushToStock", sender: self)
+        
     }
 }
 

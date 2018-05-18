@@ -39,11 +39,73 @@
                     <navigationItem key="navigationItem" id="pKr-HY-BUa"/>
                     <connections>
                         <outlet property="tableView" destination="yOB-yl-wuq" id="5A8-WI-f4N"/>
+                        <segue destination="EnN-nF-rSF" kind="show" identifier="pushToStock" id="Zfs-61-6sD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="972" y="33.733133433283363"/>
+        </scene>
+        <!--Stocks For Stock Exchange View Controller-->
+        <scene sceneID="Pa6-tw-do8">
+            <objects>
+                <viewController id="EnN-nF-rSF" customClass="StocksForStockExchangeViewController" customModule="DummyRepo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z0y-Et-J1i">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aKP-0M-SMi">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dbF-ZQ-6LN" firstAttribute="bottom" secondItem="aKP-0M-SMi" secondAttribute="bottom" id="3Kr-h6-jJy"/>
+                            <constraint firstItem="dbF-ZQ-6LN" firstAttribute="trailing" secondItem="aKP-0M-SMi" secondAttribute="trailing" id="LJW-tY-Rx7"/>
+                            <constraint firstItem="aKP-0M-SMi" firstAttribute="top" secondItem="dbF-ZQ-6LN" secondAttribute="top" id="dZs-1l-bPp"/>
+                            <constraint firstItem="aKP-0M-SMi" firstAttribute="leading" secondItem="dbF-ZQ-6LN" secondAttribute="leading" id="pFq-dy-ihN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dbF-ZQ-6LN"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="aKP-0M-SMi" id="NrE-eL-0DX"/>
+                        <segue destination="Iix-kL-udA" kind="show" identifier="statsForStock" id="J59-nK-EK2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rYL-C2-eIC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1910" y="20"/>
+        </scene>
+        <!--Stock Price View Controller-->
+        <scene sceneID="WIV-dm-m84">
+            <objects>
+                <viewController id="Iix-kL-udA" customClass="StockPriceViewController" customModule="DummyRepo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="crL-cP-0Fg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SuR-Dk-RXf">
+                                <rect key="frame" x="166.5" y="323" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SuR-Dk-RXf" firstAttribute="centerY" secondItem="crL-cP-0Fg" secondAttribute="centerY" id="Cvo-40-1Fv"/>
+                            <constraint firstItem="SuR-Dk-RXf" firstAttribute="centerX" secondItem="crL-cP-0Fg" secondAttribute="centerX" id="iXC-P3-NJa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uP8-0E-ody"/>
+                    </view>
+                    <connections>
+                        <outlet property="priceLabel" destination="SuR-Dk-RXf" id="D2T-jx-4YN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ENM-9k-7r8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2678" y="19"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WS6-v1-Qo2">
